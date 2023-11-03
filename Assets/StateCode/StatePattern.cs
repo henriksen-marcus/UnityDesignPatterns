@@ -10,20 +10,23 @@ namespace StateMachine
         void EnterState();
         void UpdateState();
         void ExitState();
+        Color color { get; set; }
     }
     public class RedLightState : ITrafficLightState
     {
         private readonly TrafficLight trafficLight;
+        public Color color { get; set; }
 
         public RedLightState(TrafficLight trafficLight)
         {
             this.trafficLight = trafficLight;
+            this.color = Color.red;
         }
 
         public void EnterState()
         {
             Debug.Log("Red light on");
-            trafficLight.SetLightColor(Color.red);
+            trafficLight.SetLightColor(color);
         }
 
         public void UpdateState()
@@ -35,21 +38,25 @@ namespace StateMachine
         {
             Debug.Log("Red light off");
         }
+
+        
     }
 
     public class YellowLightState : ITrafficLightState
     {
         private readonly TrafficLight trafficLight;
+        public Color color { get; set; }
 
         public YellowLightState(TrafficLight trafficLight)
         {
             this.trafficLight = trafficLight;
+            this.color = Color.yellow;
         }
 
         public void EnterState()
         {
             Debug.Log("Yellow light on");
-            trafficLight.SetLightColor(Color.yellow);
+            trafficLight.SetLightColor(color);
         }
 
         public void UpdateState()
@@ -66,16 +73,18 @@ namespace StateMachine
     public class GreenLightState : ITrafficLightState
     {
         private readonly TrafficLight trafficLight;
+        public Color color { get; set; }
 
         public GreenLightState(TrafficLight trafficLight)
         {
             this.trafficLight = trafficLight;
+            this.color = Color.green;
         }
 
         public void EnterState()
         {
             Debug.Log("Green light on");
-            trafficLight.SetLightColor(Color.green);
+            trafficLight.SetLightColor(color);
         }
 
         public void UpdateState()
